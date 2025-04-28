@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "cea739e3-bffa-4059-b224-87bb47a4767b",
+		"name": "cash-desk-module",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17736710",
+		"_collection_link": "https://www.postman.com/lively-desert-453859/workspace/cashdeskmodule/collection/17736710-cea739e3-bffa-4059-b224-87bb47a4767b?action=share&source=collection_link&creator=17736710"
+	},
+	"item": [
+		{
+			"name": "get cash balance - cashiers with 'a'",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get cash balance - Martina",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-balance?dateFrom=2025-04-25T12:30:00.000Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-balance"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "2025-04-25T12:30:00.000Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get cash balance - Martina only transaction 2 & 3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-balance?dateFrom=2025-04-25T12:30:00.001Z&dateTo=2025-04-25T13:35:00.001Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-balance"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "2025-04-25T12:30:00.001Z"
+						},
+						{
+							"key": "dateTo",
+							"value": "2025-04-25T13:35:00.001Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "withdraw BGN from Martina",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cashierId\": 0,\r\n    \"currency\": \"BGN\",\r\n    \"cash\" : {\r\n        \"10\" : -2,\r\n        \"50\" : -5\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-operation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-operation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "withdraw EUR from Martina",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cashierId\": 0,\r\n    \"currency\": \"EUR\",\r\n    \"cash\" : {\r\n        \"10\" : -2,\r\n        \"50\" : -5\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-operation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-operation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deposit BGN to Martina",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cashierId\": 0,\r\n    \"currency\": \"BGN\",\r\n    \"cash\" : {\r\n        \"10\" : 6,\r\n\t\t\t\t\"50\" : 10,\r\n        \"100\" : 5\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-operation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-operation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deposit EUR to Martina",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "FIB-X-AUTH",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cashierId\": 0,\r\n    \"currency\": \"EUR\",\r\n    \"cash\" : {\r\n        \"10\" : 6,\r\n\t\t\t\t\"50\" : 10,\r\n        \"100\" : 5\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cash-operation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cash-operation"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
